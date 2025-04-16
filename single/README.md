@@ -44,10 +44,10 @@ SELECT partition,name,active FROM system.parts where table= 'test_table'
 EXPLAIN indexes=1 SELECT * FROM single_test.test_table WHERE  timestamp >=NOW('Europe/Moscow') and timestamp < NOW('Europe/Moscow')+toIntervalMinute(120);
 ```
 3.3 TTL  
-DELETE - delete expired rows (default action);
-RECOMPRESS codec_name - recompress data part with the codec_name;
-TO DISK 'aaa' - move part to the disk aaa;
-TO VOLUME 'bbb' - move part to the disk bbb;
+DELETE - delete expired rows (default action);  
+RECOMPRESS codec_name - recompress data part with the codec_name;  
+TO DISK 'aaa' - move part to the disk aaa;  
+TO VOLUME 'bbb' - move part to the disk bbb;  
 
 ```sql
 ALTER TABLE single_test.test_table MODIFY TTL my_date + INTERVAL 1 HOUR;
